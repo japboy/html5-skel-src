@@ -1,0 +1,84 @@
+@import 'nib'
+@import './_mixins'
+
+bgColor = rgb(255,255,255)
+fgColor = rgb(0,0,0)
+
+body
+  background-color bgColor
+
+#main
+  background-color bgColor
+
+.view
+  height 100%
+  left 0
+  position absolute
+  top 0
+  width 100%
+
+  &__thumb
+    left 50%
+    position absolute
+    top 50%
+
+    &.fade__out
+      animation-name fadeOutToRight
+      animation-delay 0.2s
+      animation-duration 0.6s
+      animation-fill-mode forwards
+
+    &.fade__in
+      animation-name fadeInFromLeft
+      animation-delay 0.2s
+      animation-duration 0.6s
+      animation-fill-mode forwards
+
+#message
+  height 120px
+  margin-top -(120 / 2)px
+  position absolute
+  text-stroke 1px bgColor
+  top 50%
+  width 90%
+
+  &.fade__out
+    animation-name fadeOutToRight
+    animation-duration 0.4s
+    animation-fill-mode forwards
+
+  &.fade__in
+    animation-name fadeInFromLeft
+    animation-duration 0.4s
+    animation-fill-mode forwards
+
+footer
+  bottom 0
+  height 30px
+  left 0
+  position absolute
+  text-align right
+  width 100%
+
+.fb-like
+  top -3px
+
+.twitter-share-button
+  width 87px !important
+
+.loader
+  &__mask
+    @extend $fadeOut
+    background-color bgColor
+    height 100%
+    left 0
+    position absolute
+    top 0
+    width 100%
+
+  &__icon
+    left 50%
+    margin-left -8px
+    margin-top -8px
+    position absolute
+    top 50%

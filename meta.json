@@ -1,0 +1,32 @@
+{
+  "title": "html5-skel-src",
+  "author": "Yu I.",
+  "description": "html5-skel-src",
+  "url": "https://github.com/japboy/html5-skel-src",
+  "keywords": [
+    "key1",
+    "key2",
+    "key3"
+  ],
+  "robots": [
+    "NOINDEX",
+    "NOFOLLOW"
+  ],
+  "facebook": {
+    "admins": [
+      "XXXXXXXXX",
+      "XXXXXXXXX"
+    ],
+    "locale": "ja_JP",
+    "image": "http://placehold.it/1500x1500",
+    "image_width": "1500",
+    "image_height": "1500"
+  },
+  "google": {
+    "analytics_id": "UA-XXXXX-X"
+  },
+  "twitter": {
+    "creator": "@twitter",
+    "creator_id": "XXXXXXXX"
+  }
+}

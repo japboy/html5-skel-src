@@ -1,0 +1,23 @@
+extends _layout
+
+block title
+  title= title
+
+block append meta
+  include _inc_sns_meta
+
+block append style
+  //link(rel='stylesheet', href='./css/sprite.min.css')
+  link(rel='stylesheet', href='./css/app.min.css')
+
+block append script
+  script(src='./js/app.min.js', charset='UTF-8')
+
+block body
+  section#main(role='main')
+
+  footer
+    include _inc_sns_button
+
+  div.loader__mask
+    img.loader__icon(src='./img/ajax-loader.gif', alt='', width='16', height='16')
