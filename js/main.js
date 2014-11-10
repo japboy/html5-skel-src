@@ -1,14 +1,14 @@
 'use strict';
 
+var Lazy = require('lazy.js');
 var Q = require('q');
-var _ = require('underscore');
 
 var helper = require('./helper');
 var tumblr = require('./tumblr.coffee');
 
 var d = global.document;
 
-var CONSUMER_KEY = '';
+var CONSUMER_KEY = process.env.CONSUMER_KEY;
 
 var runner = helper.createRunner();
 
@@ -73,11 +73,13 @@ function ready (data) {
 }
 
 function filter (data) {
-  var posts = data[1].posts, photos_length = posts.length;
-  var photos = _.flatten(_.pluck(posts, 'photos'));
-  //var thumbs = _.where(_.flatten(_.pluck(photos, 'alt_sizes')), { width: 1280 });
-  var thumbs = _.flatten(_.pluck(photos, 'original_size'));
-  helper.preloads(_.pluck(thumbs, 'url'), helper.img).then(ready, fail);
+  var posts = Lazy(data[1].posts)
+    .pluck('photos')
+    .flatten()
+    .pluck('original_size')
+    .flatten()
+    .pluck('url');
+  helper.preloads(posts.toArray(), helper.img).then(ready, fail);
 }
 
 function animate () {
@@ -93,7 +95,7 @@ var tumblrs = [
 
 var promises = [
   helper.dom(),
-  blog(tumblrs[ _.random(0, 5) ]),
+  blog(tumblrs[ Lazy.range(3).shuffle().toArray()[0] ]),
   helper.sleep(3000)
 ];
 

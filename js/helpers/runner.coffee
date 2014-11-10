@@ -1,6 +1,6 @@
 'use strict'
 
-_ = require 'underscore'
+Lazy = require 'lazy.js'
 
 mixin = require './mixin.coffee'
 
@@ -20,7 +20,7 @@ class Runner extends mixin.Base
     @set 'funcs', funcs
 
   remove: (func) =>
-    funcs = _.without @get('funcs'), func
+    funcs = Lazy(@get('funcs')).without(func).toArray()
     @set 'funcs', funcs
 
   start: =>

@@ -1,7 +1,6 @@
 'use strict';
 
 var Q = require('q');
-var _ = require('underscore');
 
 var d = global.document;
 

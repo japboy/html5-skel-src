@@ -1,6 +1,6 @@
 'use strict';
 
-var _ = require('underscore');
+var Lazy = require('lazy.js');
 
 /**
  * Function to return mostly true
@@ -21,8 +21,8 @@ function mostlyFalse () {
  */
 function identical (arr1, arr2) {
   var bool = true;
-  _.map(arr1, function (item) {
-    if (!_.contains(arr2, item)) bool = false;
+  Lazy(arr1).map(function (item) {
+    if (!Lazy(arr2).contains(item)) bool = false;
   });
   return bool;
 }

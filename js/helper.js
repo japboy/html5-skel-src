@@ -1,6 +1,6 @@
 'use strict';
 
-var _ = require('underscore');
+var Lazy = require('lazy.js');
 
 require('./helpers/prefixed');
 require('./helpers/socials');
@@ -21,10 +21,10 @@ var modules = [
 
 var helper = {};
 
-_.map(modules, function (module) {
+Lazy(modules).map(function (module) {
   for (var func in module) {
     helper[func] = module[func];
   }
-});
+}).toArray();
 
 module.exports = helper;

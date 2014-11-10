@@ -1,7 +1,7 @@
 'use strict';
 
 var Q = require('q');
-var _ = require('underscore');
+var Lazy = require('lazy.js');
 
 /**
  * Promise object for a timer
@@ -20,7 +20,7 @@ function sleep (millisec) {
  */
 function preloads (uris, type) {
   var dfr = Q.defer(), promises = [];
-  _.map(uris, function (uri) { promises.push(type(uri)); });
+  Lazy(uris).map(function (uri) { promises.push(type(uri)); }).toArray();
   Q.all(promises).then(dfr.resolve, dfr.reject);
   return dfr.promise;
 }

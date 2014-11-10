@@ -1,6 +1,6 @@
 'use strict';
 
-var _ = require('underscore');
+var Lazy = require('lazy.js');
 
 var d = global.document;
 var M = global.Modernizr;
@@ -89,7 +89,7 @@ function supported (name) {
  * Event listener for polyfill events
  */
 function listen (target, event, millisec, callback) {
-  if (!supported(event)) return _.delay.call(target, callback, millisec);
+  if (!supported(event)) return global.setTimeout.call(target, callback, millisec);
   target.addEventListener(polyfill(event), callback, false);
 }
 
