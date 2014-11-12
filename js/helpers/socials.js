@@ -32,9 +32,8 @@
 (function (w, d, s) {
   'use strict';
 
-  function go() {
-    var js, fjs = d.getElementsByTagName(s)[0],
-    load = function (url, id) {
+  function go () {
+    var js, fjs = d.getElementsByTagName(s)[0], load = function (url, id) {
       if (d.getElementById(id)) {return;}
       js = d.createElement(s); js.src = url; js.id = id;
       fjs.parentNode.insertBefore(js, fjs);
@@ -44,8 +43,8 @@
     w.fbAsyncInit = function() {
       // init the FB JS SDK
       w.FB.init({
-        appId: 'YOUR_APP_ID',
-        channelUrl: '//WWW.YOUR_DOMAIN.COM/channel.html',
+        appId: process.env.FACEBOOK_APP_ID,
+        channelUrl: process.env.FACEBOOK_CHANNEL_URL,
         status: true,
         xfbml: true
       });
@@ -60,6 +59,8 @@
     load('https://apis.google.com/js/plusone.js', 'gplus1js');
     load('//platform.twitter.com/widgets.js', 'tweetjs');
   }
+
   if (w.addEventListener) { w.addEventListener('load', go, false); }
   else if (w.attachEvent) { w.attachEvent('onload', go); }
+
 })(window, document, 'script');

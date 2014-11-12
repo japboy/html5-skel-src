@@ -8,7 +8,7 @@ var tumblr = require('./tumblr.coffee');
 
 var d = global.document;
 
-var CONSUMER_KEY = process.env.CONSUMER_KEY;
+var CONSUMER_KEY = process.env.TUMBLR_CONSUMER_KEY;
 
 var runner = helper.createRunner();
 
