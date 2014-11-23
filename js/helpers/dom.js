@@ -14,9 +14,9 @@ function removeElement (el) {
 /**
  * Promise object for DOM
  */
-function dom () {
+function dom (el) {
   var dfr = Q.defer();
-  d.addEventListener('DOMContentLoaded', function load (ev) {
+  el.addEventListener('DOMContentLoaded', function load (ev) {
     ev.target.removeEventListener(ev.type, load);
     dfr.resolve(ev.target);
   }, false);

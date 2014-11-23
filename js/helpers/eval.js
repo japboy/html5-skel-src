@@ -21,7 +21,7 @@ function mostlyFalse () {
  */
 function identical (arr1, arr2) {
   var bool = true;
-  Lazy(arr1).map(function (item) {
+  Lazy(arr1).each(function (item) {
     if (!Lazy(arr2).contains(item)) bool = false;
   });
   return bool;

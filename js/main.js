@@ -87,17 +87,21 @@ function animate () {
   runner.run();
 }
 
-var tumblrs = [
-  'iheartmirandakerr.tumblr.com',
-  'likemirandakerr.tumblr.com',
-  'mirandakerrfashionstyle.tumblr.com',
-];
+function init () {
+  var tumblrs = [
+    'iheartmirandakerr.tumblr.com',
+    'likemirandakerr.tumblr.com',
+    'mirandakerrfashionstyle.tumblr.com',
+  ];
 
-var promises = [
-  helper.dom(),
-  blog(tumblrs[ Lazy.range(3).shuffle().toArray()[0] ]),
-  helper.sleep(3000)
-];
+  var promises = [
+    helper.dom(),
+    blog(tumblrs[ Lazy.range(3).shuffle().toArray()[0] ]),
+    helper.sleep(3000)
+  ];
 
-Q.all(promises).then(filter, fail);
-animate();
+  Q.all(promises).then(filter, fail);
+  animate();
+}
+
+init();

@@ -21,10 +21,10 @@ var modules = [
 
 var helper = {};
 
-Lazy(modules).map(function (module) {
+Lazy(modules).each(function (module) {
   for (var func in module) {
     helper[func] = module[func];
   }
-}).toArray();
+});
 
 module.exports = helper;

@@ -20,7 +20,7 @@ function sleep (millisec) {
  */
 function preloads (uris, type) {
   var dfr = Q.defer(), promises = [];
-  Lazy(uris).map(function (uri) { promises.push(type(uri)); }).toArray();
+  Lazy(uris).each(function (uri) { promises.push(type(uri)); });
   Q.all(promises).then(dfr.resolve, dfr.reject);
   return dfr.promise;
 }

@@ -1,7 +1,5 @@
 'use strict';
 
-var Lazy = require('lazy.js');
-
 var d = global.document;
 var M = global.Modernizr;
 
