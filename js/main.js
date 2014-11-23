@@ -22,7 +22,7 @@ function blog (domain) {
 
 function thumb (el, i) {
   el.className = 'view__thumb';
-  el.setAttribute('id', 'thumb_' + i);
+  el.setAttribute('id', 'thumb-' + i);
   el.setAttribute('alt', '');
   el.style.marginLeft = '-' + (el.width / 2) + 'px';
   el.style.marginTop = '-' + (el.height / 2) + 'px';
@@ -44,7 +44,7 @@ function ready (data) {
   main.appendChild(view);
 
   var el = thumb(data[inc], inc);
-  el.className += ' fade__in';
+  el.className += ' fade--in';
   view.appendChild(el);
 
   function slide () {
@@ -53,10 +53,10 @@ function ready (data) {
       helper.removeListening(el, 'animationend', animationend);
       view.removeChild(el);
       el = thumb(data[inc], inc);
-      el.className += ' fade__in';
+      el.className += ' fade--in';
       view.appendChild(el);
     });
-    el.className = el.className.replace('fade__in', 'fade__out');
+    el.className = el.className.replace('fade--in', 'fade--out');
     inc += 1;
     if (inc >= len) inc = 0;
   }
@@ -69,7 +69,7 @@ function ready (data) {
     helper.removeElement(loader);
   });
 
-  loader.className += ' fade__out';
+  loader.className += ' fade--out';
 }
 
 function filter (data) {

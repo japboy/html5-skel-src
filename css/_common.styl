@@ -1,0 +1,83 @@
+@import 'nib'
+
+
+//
+// Variables
+
+bgColor = rgb(255,255,255)
+fgColor = rgb(0,0,0)
+
+minWidth = 940px
+
+
+//
+// Extendings
+
+.reset
+  margin 0
+  padding 0
+
+.reset--list
+  @extend .reset
+
+  li
+    @extend .reset
+    list-style-type none
+
+.box
+  position relative
+
+.wrapper
+  @extend .box
+
+.sprite
+  @extend .box
+
+.anchor
+  text-decoration none
+
+  &:active
+  &:focus
+  &:hover
+  &:link
+  &:visited
+    text-decoration none
+
+
+//
+// Animations
+
+@keyframes fadeOutToRight
+  0%
+    coord3d 0 0 0
+    opacity 1
+  100%
+    coord3d 100 0 0
+    opacity 0
+
+@keyframes fadeInFromLeft
+  0%
+    coord3d -100 0 0
+    opacity 0
+  100%
+    coord3d 0 0 0
+    opacity 1
+
+
+//
+// Transitions
+
+$fadeOut
+  opacity 1
+  transition-delay 0
+  transition-duration 1s
+  transition-property opacity
+  transition-timing-function ease
+
+  &.fade--out
+    opacity 0
+
+
+//
+// Common layouts
+
