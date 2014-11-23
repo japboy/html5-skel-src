@@ -23,7 +23,8 @@
     "image_height": "1500"
   },
   "google": {
-    "analytics_id": "UA-XXXXX-X"
+    "analytics_id": "UA-XXXXX-X",
+    "analytics_domain": "example.com"
   },
   "twitter": {
     "creator": "@twitter",
