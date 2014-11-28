@@ -79,7 +79,7 @@ function filter (data) {
     .pluck('original_size')
     .flatten()
     .pluck('url');
-  helper.preloads(posts.toArray(), helper.img).then(ready, fail);
+  helper.promises(posts.toArray(), helper.img).then(ready, fail);
 }
 
 function animate () {
