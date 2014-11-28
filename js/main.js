@@ -95,7 +95,7 @@ function init () {
   ];
 
   var promises = [
-    helper.dom(),
+    helper.dom(d),
     blog(tumblrs[ Lazy.range(3).shuffle().toArray()[0] ]),
     helper.sleep(3000)
   ];
