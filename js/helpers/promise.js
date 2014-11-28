@@ -50,9 +50,9 @@ function defer (func) {
  * Promise object for multiple same type of Promise objects
  */
 function promises (items, func) {
-  var dfr = Q.defer(), promises = [];
-  Lazy(items).each(function (item) { promises.push(func(item)); });
-  Q.all(promises).then(dfr.resolve, dfr.reject);
+  var dfr = Q.defer(), promises_ = [];
+  Lazy(items).each(function (item) { promises_.push(func(item)); });
+  Q.all(promises_).then(dfr.resolve, dfr.reject);
   return dfr.promise;
 }
 
